@@ -10,6 +10,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.security.RunAs;
 
+/**
+ * 解析配置文件YML
+ */
 @SpringBootTest
 @RunWith(SpringRunner.class)
 class SpringbootApplicationTests {
