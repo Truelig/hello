@@ -19,16 +19,22 @@ class SpringbootApplicationTests {
 
     @Value("${a}")
     String a;
+
     @Value("#{${b}+${c}}")
     int sum;
+
     @Autowired
     Student student;
+    //调用静态方法
+    @Value("#{T(java.lang.Math).random()}")
+    double aDouble;
 
     @Test
     void test() {
         System.out.println(a);
         System.out.println(sum);
         System.out.println(student);
+        System.out.println(aDouble);
     }
 
 }
