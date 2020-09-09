@@ -1,0 +1,11 @@
+a: 8
+b: 10
+c: 4
+student:
+  name: jack
+  age: 11
+  sex: 男
+server:
+  port: 9999
+
+
