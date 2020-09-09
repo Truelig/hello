@@ -19,7 +19,7 @@ class SpringbootApplicationTests {
 
     @Value("${a}")
     String a;
-
+    //el表达式
     @Value("#{${b}+${c}}")
     int sum;
 
