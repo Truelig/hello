@@ -1,5 +1,6 @@
 package com.tuu.springboot;
 
+import com.sun.org.apache.bcel.internal.generic.ARRAYLENGTH;
 import com.tuu.springboot.to.Student;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.security.RunAs;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 解析配置文件YML
@@ -35,6 +38,8 @@ class SpringbootApplicationTests {
         System.out.println(sum);
         System.out.println(student);
         System.out.println(aDouble);
+
+
     }
 
 }
