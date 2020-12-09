@@ -14,7 +14,7 @@ public class Test2 {
             public void onSubscribe(Flow.Subscription subscription) {
                 this.subscription = subscription;
                 System.out.println("------onSubscribe------");
-                this.subscription.request(3);
+//                this.subscription.request(3);
             }
 
             @Override
@@ -39,12 +39,10 @@ public class Test2 {
             }
         };
         publisher.subscribe(subscriber);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println("生成数据："+i);
             publisher.submit("发送数据"+i);
         }
-        System.out.println(publisher.getMaxBufferCapacity());
-        System.out.println(publisher.getNumberOfSubscribers());
         while(true){
 
         }
