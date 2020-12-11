@@ -15,7 +15,10 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 public class Test1 {
-
+    /**
+     * 阻塞nio
+     * @throws IOException
+     */
     @Test
     public void client() throws IOException{
         SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", 9999));
