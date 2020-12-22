@@ -1,10 +1,8 @@
 package com.tuu.test1;
 
-import com.tuu.util.ListUtil;
 import org.junit.Test;
-import reactor.core.publisher.Flux;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -49,5 +47,20 @@ public class Test1 {
         fileChannel.close();
         socketChannel.close();
         serverSocketChannel.close();
+    }
+
+    @Test
+    public void test(){
+        String str = "iu你阿红";
+        try {
+            File file = new File("D:\\tuu\\text\\q1.txt");
+            FileChannel fileChannel = new FileOutputStream(file).getChannel();
+            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+            byteBuffer.put(str.getBytes());
+            byteBuffer.flip();
+            fileChannel.write(byteBuffer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
