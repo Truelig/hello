@@ -29,22 +29,23 @@ public class HttpUtils {
 
     /**
      * post请求(用于key-value格式的参数)
-	 * (此Request 会复用连接数)
+     * (此Request 会复用连接数)
+     *
      * @param url
      * @param params
      * @return
      */
-    public static String doPost(String url, Map<String, String> params) throws Exception{
-		String result = null;
-		List<NameValuePair> paramList = new ArrayList<>();
-		for (Iterator iter = params.keySet().iterator(); iter.hasNext();) {
-			String name = (String) iter.next();
-			String value = String.valueOf(params.get(name));
-			paramList.add(new BasicNameValuePair(name, value));
-		}
-		result = Request.Post(url).body(new UrlEncodedFormEntity(paramList, "utf-8"))
-				.socketTimeout(60000).connectTimeout(30000).execute().returnContent().asString(Charset.forName("utf-8"));
-		return result;
+    public static String doPosts(String url, Map<String, String> params) throws Exception {
+        String result = null;
+        List<NameValuePair> paramList = new ArrayList<>();
+        for (Iterator iter = params.keySet().iterator(); iter.hasNext(); ) {
+            String name = (String) iter.next();
+            String value = String.valueOf(params.get(name));
+            paramList.add(new BasicNameValuePair(name, value));
+        }
+        result = Request.Post(url).body(new UrlEncodedFormEntity(paramList, "utf-8"))
+                .socketTimeout(60000).connectTimeout(30000).execute().returnContent().asString(Charset.forName("utf-8"));
+        return result;
     }
 
 	/**
@@ -184,19 +185,30 @@ public class HttpUtils {
         //陕西省,610000
         //宁夏回族自治区,640000
 
-        try
-        {
+        try {
             String resultStr = doPostJson("http://webapi.http.zhimacangku.com/getip?num=125&type=2&pro=0&city=0&yys=0&port=1&time=1&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=310000,440000","");
             //System.out.println(resultStr.indexOf("{\"code\":113,\"data\":[],\"msg\":\"请添加白名单"));
             //System.out.println(resultStr);
             //String resultStr = doGetJson("http://viplego.cn/goods/list?page=1&name=&is_home=1&is_recommend=&is_selected=&is_direct=&limit=50");
 
             //System.out.println(resultStr);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static String doPost(String url, Map<String, String> params) throws Exception {
+        String result = null;
+        List<NameValuePair> paramList = new ArrayList<>();
+        for (Iterator iter = params.keySet().iterator(); iter.hasNext(); ) {
+            String name = (String) iter.next();
+            String value = String.valueOf(params.get(name));
+            paramList.add(new BasicNameValuePair(name, value));
+        }
+        result = Request.Post(url).body(new UrlEncodedFormEntity(paramList, "utf-8"))
+                .socketTimeout(15000).connectTimeout(30000).execute().returnContent().asString(Charset.forName("utf-8"));
+        return result;
     }
 
 }

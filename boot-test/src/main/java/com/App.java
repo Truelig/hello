@@ -13,6 +13,6 @@ public class App  implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(99999);
+        System.out.println("app is ready!");
     }
 }

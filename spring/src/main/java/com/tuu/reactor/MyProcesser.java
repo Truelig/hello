@@ -14,9 +14,10 @@ public class MyProcesser extends SubmissionPublisher<String> implements Flow.Pro
     @Override
     public void onNext(Integer item) {
         item++;
-        System.out.println("process接受的数据"+item);
-        if(item>0)
-        this.submit(item+"");
+        System.out.println("process接受的数据" + item);
+        if (item > 0) {
+            this.submit(item + "");
+        }
         subscription.request(5);
     }
 
