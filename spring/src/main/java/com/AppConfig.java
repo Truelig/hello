@@ -7,4 +7,7 @@ import org.springframework.context.annotation.Import;
 @ComponentScan("com")
 @Import(MyImportSelect.class)
 public class AppConfig {
+
+
+
 }
