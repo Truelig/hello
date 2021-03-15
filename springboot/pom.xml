@@ -54,11 +54,11 @@
             <scope>test</scope>
 
         </dependency>
-        <dependency>
-            <groupId>luban-register-center</groupId>
-            <artifactId>server-springboot-start</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>luban-register-center</groupId>-->
+        <!--            <artifactId>server-springboot-start</artifactId>-->
+        <!--            <version>1.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <build>
