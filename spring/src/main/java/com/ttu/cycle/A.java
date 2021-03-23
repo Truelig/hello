@@ -11,4 +11,12 @@ public class A {
     public void say(){
         System.out.println("i am aAaAa");
     }
+
+    public B getB() {
+        return b;
+    }
+
+    public void setB(B b) {
+        this.b = b;
+    }
 }

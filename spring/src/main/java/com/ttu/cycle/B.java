@@ -12,4 +12,12 @@ public class B {
     public void say(){
         System.out.println("i am bBbBb");
     }
+
+    public A getA() {
+        return a;
+    }
+
+    public void setA(A a) {
+        this.a = a;
+    }
 }
