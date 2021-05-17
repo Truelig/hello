@@ -1,13 +1,9 @@
 package com.tuu.springboot.util;
 
-import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.config.Config;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class HazelcastUtil {
 
@@ -15,8 +11,11 @@ public class HazelcastUtil {
 
     public  static HazelcastInstance getInstance() {
         if (null == hazelcastInstance) {
+            Config config = new Config();
+            config.setInstanceName("tuu-springboot");
+            config.setClusterName("tuu");
 
-             hazelcastInstance = Hazelcast.newHazelcastInstance(new Config().setInstanceName("tuu"));
+            hazelcastInstance = Hazelcast.newHazelcastInstance(config);
         }
         return hazelcastInstance;
     }
