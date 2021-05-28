@@ -2,7 +2,6 @@ package com.tuu.test1.hazelcast;
 
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IQueue;
 import org.junit.Test;
 
 import java.util.Map;
