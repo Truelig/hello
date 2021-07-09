@@ -1,6 +1,7 @@
 package com.tuu.springboot.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.tuu.springboot.util.RestUtils;
 import org.apache.dubbo.common.utils.IOUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
@@ -54,6 +55,17 @@ public class ChartSetController {
         elem.setText("111_2");
         String s = document.asXML();
         System.out.println(s);
+    }
+
+
+    @ResponseBody
+    @PostMapping("/rest3")
+    public void call3(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        request.setCharacterEncoding("UTF-8");
+        JSONObject params = RestUtils.analysisRequest(request);
+        String sms = (String) params.get("sms");
+        System.out.println(sms.length());
+
     }
 
     //form-data

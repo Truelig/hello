@@ -13,6 +13,11 @@ public class Test {
         byte[] bytes = s.getBytes(StandardCharsets.UTF_8);
         String ss = new String(bytes);
         System.out.println(ss);
-
+        new Thread(()->{
+            System.out.println(1);
+            System.out.println(1);
+            System.out.println(1);
+        }).start();
+        System.out.println(9999);
     }
 }
