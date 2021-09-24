@@ -8,36 +8,43 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingDeque;
 
-@Controller
-@RequestMapping("/test")
+//@Controller
+//@RequestMapping("/test")
 public class TestController {
 
-    private  ExecutorService executorService = Executors.newFixedThreadPool(40);
+    private static Integer threadNum = 40;
+    private ExecutorService executorService = Executors.newFixedThreadPool(threadNum);
+//    private static Queue<Integer> queue = new LinkedBlockingDeque<>();
+//    {
+//        for (int i = 0; i < 200000000; i++) {
+//            queue.add(i);
+//        }
+//    }
+
     @Autowired
     StringRedisTemplate stringRedisTemplate;
 
     @Autowired
     RedisTemplate redisTemplate;
 
-    @GetMapping("/redis/{id}")
-    public String test(@PathVariable("id") String id){
-
-        int conunt=0;
-        while(conunt<100000000){
-            conunt++;
-            executorService.submit(()->{
-                long s = System.currentTimeMillis();
-                Boolean key = stringRedisTemplate.opsForValue().getBit("key", 99999999L);
-                long e = System.currentTimeMillis()-s;
-                if(e>200){
-
-                    System.out.println("结果是"+key+"耗时"+e+"ms");
-                }
-        });
-        }
-        return "ok";
-    }
+//    @GetMapping("/redis/{id}")
+//    public String test(@PathVariable("id") String id) {
+//        for (int i = 0; i < threadNum; i++) {
+//            while (true) {
+//                executorService.submit(() -> {
+//                    Integer poll = queue.poll();
+//                    long s = System.currentTimeMillis();
+//                    Boolean key = stringRedisTemplate.opsForValue().getBit("key", poll);
+//                    long e = System.currentTimeMillis() - s;
+//                    System.out.println("结果是" + key + "耗时" + e + "ms");
+//                });
+//            }
+//        }
+//        return "ok";
+//    }
 }

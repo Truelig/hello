@@ -3,6 +3,7 @@ package com.tuu.springboot.controller;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
 import com.tuu.springboot.service.UserService;
+import com.tuu.springboot.test.Test;
 import com.tuu.springboot.to.User;
 import com.tuu.springboot.util.HazelcastUtil;
 import com.tuu.springboot.util.SpringContextUtil;
@@ -31,6 +32,19 @@ private static String name = "xiaoming";
 
     private String lock = "tuu";
     private IMap<String, String> lock_test = HazelcastUtil.getInstance().getMap("lock");
+
+
+    @GetMapping("/teststatic")
+    public String testa() throws Exception {
+        Test.test111(Thread.currentThread().getName());
+        return "qqq";
+    }
+    @GetMapping("/test")
+    public String testb() throws Exception {
+        Test test = new Test();
+        test.test222(Thread.currentThread().getName());
+        return "qqq";
+    }
 
     @GetMapping("/getuser/{id}")
     public String getUserById(@PathVariable("id") String id) {

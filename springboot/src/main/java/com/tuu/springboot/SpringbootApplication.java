@@ -2,7 +2,9 @@ package com.tuu.springboot;
 
 import com.tuu.springboot.listener.event.TuuEvent;
 import com.tuu.springboot.to.Student;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -18,7 +20,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableConfigurationProperties(Student.class)
 @EnableScheduling
 @EnableAsync
-public class SpringbootApplication {
+public class SpringbootApplication implements CommandLineRunner , SpringApplicationRunListener {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootApplication.class, args);
@@ -28,4 +30,9 @@ public class SpringbootApplication {
 //        applicationContext.publishEvent(event);
     }
 
+
+    @Override
+    public void run(String... args) throws Exception {
+
+    }
 }
